@@ -5,14 +5,6 @@
 This project is a **responsive Italian restaurant website** built using **HTML**, **CSS**, and **Bootstrap**.
 It showcases an elegant restaurant design with a simple navigation structure and adaptive layout for different screen sizes.
 
-###  Objective
-
-The goal of this project is to:
-
-* Practice creating **responsive web pages** using **Bootstrap Grid** and **Media Queries**.
-* Demonstrate the ability to structure a small website with multiple sections.
-* Develop skills in **layout design**, **typography**, and **UI responsiveness**.
-
 ###  Features
 
 * **Home Page** introducing the restaurant
