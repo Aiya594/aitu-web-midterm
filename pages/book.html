@@ -2,12 +2,13 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pasto Restuarant</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
-        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <link rel="stylesheet" href="../style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pasto Restaurant | Book a Table</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../style.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -24,66 +25,91 @@
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="book.html" class="active">Book a table</a></li>
-
             </ul>
         </nav>
     </header>
 
     <main class="book">
-        <div class="hero">
-            <div class="background-img"></div>
-            <div class="hero-text">
-                <h1><span>Book</span> Your Table</h1>
-            </div>
-        </div>
-
         <div class="booking-form-container">
-            <form class="booking-form">
-                <h2 class="font-title">Reservation Form</h2>
+            <form id="bookingForm" class="booking-form" novalidate>
+                <h2 class="font-title">Book a Table</h2>
 
                 <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" placeholder="Your name" required>
-
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                <input type="text" id="name" name="name" placeholder="Your full name" required />
 
                 <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" placeholder="+7 700 000 0000" required>
+                <input type="tel" id="phone" name="phone" placeholder="+7 707 123 4567" required />
 
-                <label for="guests">Number of Guests</label>
-                <select id="guests" name="guests" required>
-                    <option value="">Select</option>
-                    <option>1 </option>
-                    <option>2 </option>
-                    <option>3 </option>
-                    <option>4 </option>
-                    <option>5+</option>
+                <label for="people">Number of People</label>
+                <select id="people" name="people" required>
+                    <option value="">Select...</option>
+                    <option value="1">1 Person</option>
+                    <option value="2">2 People</option>
+                    <option value="3">3 People</option>
+                    <option value="4">4 People</option>
+                    <option value="5+">5 or more</option>
                 </select>
 
                 <label for="date">Date</label>
-                <input type="date" id="date" name="date" required>
+                <input type="date" id="date" name="date" required />
 
                 <label for="time">Time</label>
-                <input type="time" id="time" name="time" required>
+                <input type="time" id="time" name="time" required />
 
-                <label for="requests">Special Requests</label>
-                <textarea id="requests" name="requests" rows="3" placeholder="Any allergies or preferences?"></textarea>
-
-                <button type="submit" class="btn">Reserve Now</button>
-                
+                <button type="submit" class="btn">Confirm Booking</button>
+                <div id="bookingFeedback" style="display:none; margin-top:15px;"></div>
             </form>
         </div>
-
     </main>
-
 
     <footer class="text-center p-3 mt-4 bg-dark-red text-light">
         <p>&copy; 2025 Pasto Italian Restaurant</p>
     </footer>
 
+    <script>
+        $(document).ready(function () {
+            $("#bookingForm").on("submit", function (e) {
+                e.preventDefault();
+                let valid = true;
 
+                $(this)
+                    .find("input, select")
+                    .each(function () {
+                        if (!$(this).val()) {
+                            $(this).css("border-color", "red");
+                            valid = false;
+                        } else {
+                            $(this).css("border-color", "#868859");
+                        }
+                    });
 
+                const selectedDate = new Date($("#date").val());
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                if (selectedDate < today) {
+                    $("#date").css("border-color", "red");
+                    valid = false;
+                }
 
+                if (valid) {
+                    $("#bookingFeedback")
+                        .text("Your table has been successfully booked!")
+                        .css("color", "green")
+                        .fadeIn()
+                        .delay(2500)
+                        .fadeOut();
+                    $("#bookingForm")[0].reset();
+                } else {
+                    $("#bookingFeedback")
+                        .text("Please check the fields and try again.")
+                        .css("color", "red")
+                        .fadeIn()
+                        .delay(2500)
+                        .fadeOut();
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
