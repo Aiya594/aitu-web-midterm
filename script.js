@@ -16,4 +16,15 @@ $(document).ready(function () {
         $(this).addClass("active");
     });
 
+
+    $("#openLogin").click(function () {
+        $("#loginModal").modal("show");
+    });
+
+    $("#loginForm").on("submit", function (e) {
+        e.preventDefault();
+        $("#loginModal").modal("hide");
+        alert("Login successful!");
+    });
+
 });

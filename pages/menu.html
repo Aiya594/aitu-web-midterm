@@ -33,39 +33,54 @@
 
     <main class="menu">
         <h2>Our Menu</h2>
+        <input type="text" id="searchInput" placeholder="Search menu..." class="form-control my-3">
+
+        <div class="btn-group mb-3" role="group" aria-label="Menu filters">
+            <button type="button" class="btn btn-secondary menu-filter" data-filter="all">All</button>
+            <button type="button" class="btn btn-secondary menu-filter" data-filter="pasta">Pasta</button>
+            <button type="button" class="btn btn-secondary menu-filter" data-filter="pizza">Pizza</button>
+            <button type="button" class="btn btn-secondary menu-filter" data-filter="salad">Salad</button>
+            <button type="button" class="btn btn-secondary menu-filter" data-filter="dessert">Dessert</button>
+        </div>
+
+
         <div class="menu-grid">
 
-            <div class="menu-card">
+            <div class="menu-card" data-category="pasta">
                 <img src="../images/past.jfif" alt="Pasta Carbonara">
                 <h3>Pasta Carbonara</h3>
                 <p>Classic creamy sauce with pancetta and parmesan.</p>
                 <span class="price">2500tenge</span>
             </div>
 
-            <div class="menu-card">
+            <div class="menu-card" data-category="pizza">
                 <img src="../images/pizza.jfif" alt="Margherita Pizza">
                 <h3>Margherita Pizza</h3>
                 <p>Fresh mozzarella, basil, and tomato sauce on thin crust.</p>
                 <span class="price">3500tenge</span>
             </div>
 
-            <div class="menu-card">
+            <div class="menu-card" data-category="salad">
                 <img src="../images/salad.jfif" alt="Caprese Salad">
                 <h3>Caprese Salad</h3>
                 <p>Tomatoes, mozzarella, and basil drizzled with olive oil.</p>
                 <span class="price">1500tenge</span>
             </div>
 
-            <div class="menu-card">
+            <div class="menu-card" data-category="dessert">
                 <img src="../images/tiramisu.jfif" alt="Tiramisu">
                 <h3>Tiramisu</h3>
                 <p>Classic Italian dessert with mascarpone and espresso.</p>
                 <span class="price">1400tenge</span>
             </div>
 
+
         </div>
 
         <a href="book.html" class="btn">Book a table</a>
+
+
+
     </main>
 
 
@@ -76,7 +91,7 @@
 
 
 
-    <script src="../script.js"></script>
+    <script src="../script/search.js "></script>
 
 </body>
 
