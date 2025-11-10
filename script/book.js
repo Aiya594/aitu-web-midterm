@@ -50,7 +50,7 @@ $(document).ready(function () {
                 <button class="btn btn-sm btn-danger deleteBtn">Delete</button>
             </td>
         </tr>`;
-        $("#bookingTable tbody").append($(row).hide().slideDown());
+        $("#bookingTable tbody").append($(row));
 
         $("#bookingFeedback").text("Your table has been successfully booked!").css("color", "green").fadeIn().delay(3000).fadeOut();
         $("#bookingForm")[0].reset();
